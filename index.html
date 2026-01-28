@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Typeface Playground</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @font-face {
+      font-family: "Circle";
+      src: url("Circle_final2-Regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Triangle";
+      src: url("Triangle_final-Regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Triangle2";
+      src: url("Triangle2_final-Regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Square";
+      src: url("Square_final-Regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Side";
+      src: url("Side_final-Regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Vertical";
+      src: url("Vertical_final-Regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Diamond";
+      src: url("Diamond_final-Regular.ttf") format("truetype");
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      background: #f6f6f6;
+      color: #111;
+    }
+    header {
+      padding: 24px;
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+    header p {
+      margin: 0;
+      color: #555;
+      font-size: 14px;
+    }
+    main {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      min-height: calc(100vh - 96px);
+    }
+    .controls {
+      padding: 24px;
+      background: #fafafa;
+      border-right: 1px solid #ddd;
+    }
+    .controls label {
+      display: block;
+      font-size: 12px;
+      margin-top: 16px;
+      margin-bottom: 4px;
+      color: #444;
+    }
+    .controls input,
+    .controls textarea,
+    .controls select {
+      width: 100%;
+      font-size: 14px;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .shape-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .shape {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #999;
+      background: #fff;
+      cursor: pointer;
+    }
+    .shape.active {
+      outline: 3px solid #111;
+    }
+    .circle { border-radius: 50%; }
+    .square { }
+    .rect-h { width: 64px; height: 36px; }
+    .rect-v { width: 36px; height: 64px; }
+    .triangle {
+      width: 0; height: 0;
+      border-left: 24px solid transparent;
+      border-right: 24px solid transparent;
+      border-bottom: 42px solid #999;
+      background: none;
+      border-radius: 0;
+    }
+    .inv-triangle {
+      width: 0; height: 0;
+      border-left: 24px solid transparent;
+      border-right: 24px solid transparent;
+      border-top: 42px solid #999;
+      background: none;
+      border-radius: 0;
+    }
+    .diamond {
+      transform: rotate(45deg);
+    }
+    .preview {
+      padding: 32px;
+      overflow: auto;
+      background: #ffffff;
+    }
+    .preview-text {
+      line-height: 1.4;
+      word-break: break-all;
+    }
+    footer {
+      padding: 12px 24px;
+      font-size: 12px;
+      color: #777;
+      border-top: 1px solid #ddd;
+      background: #fff;
+    }
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      .controls {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Typeface Playground</h1>
+    <p>新しく制作したタイプフェイスを「触って」体験するページ</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label>テキスト入力</label>
+      <textarea id="textInput" rows="6">あいうえお かきくけこ
+まるい しかく さんかく</textarea>
+
+      <label>文字サイズ</label>
+      <input id="fontSize" type="range" min="16" max="200" value="72" />
+
+      <label>行間</label>
+      <input id="lineHeight" type="range" min="0.8" max="2.5" step="0.1" value="1.4" />
+
+      <label>字間</label>
+      <input id="letterSpacing" type="range" min="-0.1" max="1" step="0.05" value="0" />
+
+      <label>タイプフェイス（形で選ぶ）</label>
+      <div class="shape-buttons">
+        <button class="shape circle" data-font="Circle" aria-label="円"></button>
+        <button class="shape triangle" data-font="Triangle" aria-label="三角"></button>
+        <button class="shape inv-triangle" data-font="Triangle2" aria-label="逆三角"></button>
+        <button class="shape square" data-font="Square" aria-label="正方形"></button>
+        <button class="shape rect-h" data-font="Side" aria-label="横長"></button>
+        <button class="shape rect-v" data-font="Vertical" aria-label="縦長"></button>
+        <button class="shape diamond" data-font="Diamond" aria-label="ひし形"></button>
+      </div>
+
+      <label>配置</label>
+      <select id="align">
+        <option value="left">左揃え</option>
+        <option value="center">中央揃え</option>
+        <option value="right">右揃え</option>
+      </select>
+    </section>
+
+    <section class="preview">
+      <div id="previewText" class="preview-text">
+        あいうえお かきくけこ
+        <br />まるい しかく さんかく
+        <br />タイポグラフィ
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © Typeface Experiment / Graduation Project
+  </footer>
+
+  <script>
+    const textInput = document.getElementById('textInput');
+    const fontSize = document.getElementById('fontSize');
+    const lineHeight = document.getElementById('lineHeight');
+    const letterSpacing = document.getElementById('letterSpacing');
+    const align = document.getElementById('align');
+    const shapeButtons = document.querySelectorAll('.shape');
+    const previewText = document.getElementById('previewText');
+
+    function updatePreview() {
+      previewText.innerText = textInput.value;
+      previewText.style.fontSize = fontSize.value + 'px';
+      previewText.style.lineHeight = lineHeight.value;
+      previewText.style.letterSpacing = letterSpacing.value + 'em';
+      previewText.style.textAlign = align.value;
+    }
+
+    shapeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        shapeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        previewText.style.fontFamily = btn.dataset.font;
+      });
+    });
+
+    [textInput, fontSize, lineHeight, letterSpacing, align].forEach(el => {
+      el.addEventListener('input', updatePreview);
+    });
+
+    updatePreview();
+  </script>
+</body>
+</html>
