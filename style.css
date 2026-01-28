@@ -1,0 +1,159 @@
+/* ===============================
+   フォント読み込み
+   =============================== */
+
+   @font-face {
+    font-family: "Circle";
+    src: url("Circle_final2-Regular.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Triangle";
+    src: url("Triangle_final-Regular.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Triangle2";
+    src: url("Triangle2_final-Regular.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Square";
+    src: url("Square_final-Regular.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Side";
+    src: url("Side_final-Regular.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Vertical";
+    src: url("Vertical_final-Regular.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Diamond";
+    src: url("Diamond_final-Regular.ttf") format("truetype");
+  }
+  
+  /* ===============================
+     全体設定
+     =============================== */
+  
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #f6f6f6;
+    color: #111;
+  }
+  
+  /* ヘッダー */
+  header {
+    padding: 24px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* メインレイアウト */
+  main {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    min-height: calc(100vh - 96px);
+  }
+  
+  /* 操作エリア */
+  .controls {
+    padding: 24px;
+    background: #fafafa;
+    border-right: 1px solid #ddd;
+  }
+  
+  .controls label {
+    font-size: 12px;
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+  
+  .controls input,
+  .controls textarea,
+  .controls select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  /* ===============================
+     フォント選択ボタン
+     =============================== */
+  
+  .shape-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  
+  .shape {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #999;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  .shape.active {
+    outline: 3px solid #111;
+  }
+  
+  /* 各形 */
+  .circle { border-radius: 50%; }
+  .square {}
+  .rect-h { width: 64px; height: 36px; }
+  .rect-v { width: 36px; height: 64px; }
+  .diamond { transform: rotate(45deg); }
+  
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-bottom: 42px solid #999;
+  }
+  
+  .inv-triangle {
+    width: 0;
+    height: 0;
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-top: 42px solid #999;
+  }
+  
+  /* ===============================
+     プレビュー
+     =============================== */
+  
+  .preview {
+    padding: 32px;
+    background: #fff;
+    overflow: auto;
+  }
+  
+  .preview-text {
+    line-height: 1.4;
+    word-break: break-all;
+  }
+  
+  /* レスポンシブ */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+  
+    .controls {
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+  
