@@ -147,3 +147,19 @@ main {
   background: #fff;
   color: #000;
 }
+
+/* ===============================
+   レスポンシブ
+   =============================== */
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
