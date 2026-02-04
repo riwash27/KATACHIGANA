@@ -1,159 +1,149 @@
 /* ===============================
    フォント読み込み
-   =============================== */
+=============================== */
 
-   @font-face {
-    font-family: "Circle";
-    src: url("Circle_final2-Regular.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Triangle";
-    src: url("Triangle_final-Regular.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Triangle2";
-    src: url("Triangle2_final-Regular.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Square";
-    src: url("Square_final-Regular.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Side";
-    src: url("Side_final-Regular.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Vertical";
-    src: url("Vertical_final-Regular.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Diamond";
-    src: url("Diamond_final-Regular.ttf") format("truetype");
-  }
-  
-  /* ===============================
-     全体設定
-     =============================== */
-  
-  body {
-    margin: 0;
-    font-family: system-ui, sans-serif;
-    background: #f6f6f6;
-    color: #111;
-  }
-  
-  /* ヘッダー */
-  header {
-    padding: 24px;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  /* メインレイアウト */
-  main {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    min-height: calc(100vh - 96px);
-  }
-  
-  /* 操作エリア */
-  .controls {
-    padding: 24px;
-    background: #fafafa;
-    border-right: 1px solid #ddd;
-  }
-  
-  .controls label {
-    font-size: 12px;
-    display: block;
-    margin-top: 16px;
-    margin-bottom: 4px;
-  }
-  
-  .controls input,
-  .controls textarea,
-  .controls select {
-    width: 100%;
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-  }
-  
-  /* ===============================
-     フォント選択ボタン
-     =============================== */
-  
-  .shape-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-  
-  .shape {
-    width: 48px;
-    height: 48px;
-    border: 1px solid #999;
-    background: #fff;
-    cursor: pointer;
-  }
-  
-  .shape.active {
-    outline: 3px solid #111;
-  }
-  
-  /* 各形 */
-  .circle { border-radius: 50%; }
-  .square {}
-  .rect-h { width: 64px; height: 36px; }
-  .rect-v { width: 36px; height: 64px; }
-  .diamond { transform: rotate(45deg); }
-  
-  .triangle {
-    width: 0;
-    height: 0;
-    border-left: 24px solid transparent;
-    border-right: 24px solid transparent;
-    border-bottom: 42px solid #999;
-  }
-  
-  .inv-triangle {
-    width: 0;
-    height: 0;
-    border-left: 24px solid transparent;
-    border-right: 24px solid transparent;
-    border-top: 42px solid #999;
-  }
-  
-  /* ===============================
-     プレビュー
-     =============================== */
-  
-  .preview {
-    padding: 32px;
-    background: #fff;
-    overflow: auto;
-  }
-  
-  .preview-text {
-    line-height: 1.4;
-    word-break: break-all;
-  }
-  
-  /* レスポンシブ */
-  @media (max-width: 768px) {
-    main {
-      grid-template-columns: 1fr;
-    }
-  
-    .controls {
-      border-right: none;
-      border-bottom: 1px solid #ddd;
-    }
-  }
-  
+@font-face { font-family: "Circle"; src: url("fonts/Circle-Regular.ttf"); }
+@font-face { font-family: "Triangle"; src: url("fonts/Triangle-Regular.ttf"); }
+@font-face { font-family: "Triangle2"; src: url("fonts/Triangle2-Regular.ttf"); }
+@font-face { font-family: "Square"; src: url("fonts/Square-Regular.ttf"); }
+@font-face { font-family: "Diamond"; src: url("fonts/Diamond-Regular.ttf"); }
+@font-face { font-family: "Side"; src: url("fonts/Side-Regular.ttf"); }
+@font-face { font-family: "Vertical"; src: url("fonts/Vertical-Regular.ttf"); }
+
+/* ===============================
+   共通
+=============================== */
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f6f6f6;
+  color: #111;
+}
+
+header {
+  padding: 24px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #aaa;
+  text-decoration: none;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: calc(100vh - 160px);
+}
+
+/* ===============================
+   操作UI
+=============================== */
+
+.controls {
+  padding: 24px;
+  background: #fafafa;
+  border-right: 1px solid #ddd;
+}
+
+.controls label {
+  font-size: 12px;
+  margin-top: 16px;
+  display: block;
+}
+
+.controls input,
+.controls textarea,
+.controls select {
+  width: 100%;
+  padding: 8px;
+}
+
+/* ===============================
+   図形ボタン
+=============================== */
+
+.shape-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.shape {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #999;
+  background: #fff;
+  cursor: pointer;
+}
+
+.shape.active {
+  outline: 3px solid #111;
+}
+
+.circle { border-radius: 50%; }
+.square {}
+.rect-h { height: 24px; }
+.rect-v { width: 24px; margin: auto; }
+.diamond { transform: rotate(45deg); }
+
+.triangle {
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.inv-triangle {
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+/* ===============================
+   プレビュー
+=============================== */
+
+.preview {
+  padding: 32px;
+  background: #fff;
+}
+
+.preview-text {
+  white-space: pre-wrap;
+}
+
+/* ===============================
+   ダウンロードページ
+=============================== */
+
+.download {
+  background: #f6f6f6;
+  color: #111;
+  text-align: center;
+  padding: 40px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 40px;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  background: #808080;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #000;
+}
