@@ -1,77 +1,64 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- 文字コード（日本語対応） -->
   <meta charset="UTF-8" />
-
-  <!-- ページタイトル -->
-  <title>Typeface Playground</title>
-
-  <!-- スマホ対応 -->
+  <title>かたちがな｜KATACHIGANA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- CSSファイルを読み込む -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- ページ上部 -->
-  <header>
-    <h1>Typeface Playground</h1>
-    <p>形から文字を選ぶタイプフェイス体験</p>
-  </header>
+<header>
+  <h1>かたちがな</h1>
+  <p>外形の影響に基づくひらがなのタイプフェイス</p>
+  <nav>
+    <a href="index.html">あそぶ</a> 
+    <a href="download.html">ダウンロード</a>
+  </nav>
+</header>
 
-  <main>
-    <!-- 操作パネル -->
-    <section class="controls">
-      <label>テキスト入力</label>
-      <textarea id="textInput" rows="6">あいうえお かきくけこ
-まるい しかく さんかく
-</textarea>
+<main>
+  <section class="controls">
+    <label>ひらがなを入力してください</label>
+    <textarea id="textInput" rows="4">あいうえお かきくけこ
+まるい しかく さんかく</textarea>
 
-      <label>文字サイズ</label>
-      <input id="fontSize" type="range" min="16" max="200" value="72" />
+    <label>文字サイズ</label>
+    <input id="fontSize" type="range" min="16" max="200" value="72">
 
-      <label>行間</label>
-      <input id="lineHeight" type="range" min="0.8" max="2.5" step="0.1" value="1.4" />
+    <label>行間</label>
+    <input id="lineHeight" type="range" min="0.8" max="2.5" step="0.1" value="1.4">
 
-      <label>字間</label>
-      <input id="letterSpacing" type="range" min="-0.1" max="1" step="0.05" value="0" />
+    <label>字間</label>
+    <input id="letterSpacing" type="range" min="-0.1" max="1" step="0.05" value="0">
 
-      <!-- 形でフォントを選ぶ -->
-      <label>タイプフェイス（形で選ぶ）</label>
-      <div class="shape-buttons">
-        <button class="shape circle" data-font="Circle"></button>
-        <button class="shape triangle" data-font="Triangle"></button>
-        <button class="shape inv-triangle" data-font="Triangle2"></button>
-        <button class="shape square" data-font="Square"></button>
-        <button class="shape rect-h" data-font="Side"></button>
-        <button class="shape rect-v" data-font="Vertical"></button>
-        <button class="shape diamond" data-font="Diamond"></button>
-      </div>
+    <label>配置</label>
+    <select id="align">
+      <option value="left">左揃え</option>
+      <option value="center">中央揃え</option>
+      <option value="right">右揃え</option>
+    </select>
 
-      <label>配置</label>
-      <select id="align">
-        <option value="left">左揃え</option>
-        <option value="center">中央揃え</option>
-        <option value="right">右揃え</option>
-      </select>
-    </section>
+    <label>かたちがな タイプフェイス選択</label>
+    <div class="shape-buttons">
+      <button class="shape circle" data-font="Circle"></button>
+      <button class="shape triangle" data-font="Triangle"></button>
+      <button class="shape inv-triangle" data-font="Triangle2"></button>
+      <button class="shape square" data-font="Square"></button>
+      <button class="shape diamond" data-font="Diamond"></button>
+      <button class="shape rect-h" data-font="Side"></button>
+      <button class="shape rect-v" data-font="Vertical"></button>
+  </section>
 
-    <!-- プレビュー表示 -->
-    <section class="preview">
-      <div id="previewText" class="preview-text">
-        あいうえお かきくけこ<br>
-        まるい しかく さんかく
-      </div>
-    </section>
-  </main>
+  <section class="preview">
+    <div id="previewText" class="preview-text"></div>
+  </section>
+</main>
 
-  <footer>
-    © Typeface Experiment / Graduation Project
-  </footer>
+<footer>
+  © KATACHIGANA / Graduation Project
+</footer>
 
-  <!-- JavaScriptファイルを読み込む（最後に書くのが重要） -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
