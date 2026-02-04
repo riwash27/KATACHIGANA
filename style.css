@@ -128,9 +128,10 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: clamp(32px, 6vw, 80px);
-  max-width: 670px;
+  max-width: 900px;
   margin: auto;
   margin-top: 50px;
+  font-size: 13px;
 }
 
 /* === ダウンロード用 図形ボタン（基準） === */
