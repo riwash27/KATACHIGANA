@@ -64,7 +64,7 @@ main {
 }
 
 /* ===============================
-   図形ボタン
+   図形ボタン（体験ページ）
 =============================== */
 
 .shape-buttons {
@@ -75,15 +75,15 @@ main {
 }
 
 .shape {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   border: 1px solid #999;
   background: #fff;
   cursor: pointer;
 }
 
 .shape.active {
-  outline: 3px solid #111;
+  outline: 2px solid #111;
 }
 
 .circle { border-radius: 50%; }
@@ -118,7 +118,7 @@ main {
 =============================== */
 
 .download {
-  background: #f6f6f6;
+  background: #fff;
   color: #111;
   text-align: center;
   padding: 40px;
@@ -127,11 +127,13 @@ main {
 .buttons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 40px;
-  max-width: 600px;
+  gap: clamp(32px, 6vw, 80px);
+  max-width: 670px;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 50px;
 }
+
+/* === ダウンロード用 図形ボタン（基準） === */
 
 .btn {
   display: flex;
@@ -139,8 +141,24 @@ main {
   align-items: center;
   text-decoration: none;
   color: #fff;
-  background: #808080;
+  background: #9f9f9f;
   transition: 0.2s;
+
+  /* 基本は正方形 */
+  width: clamp(120px, 13vw, 160px);
+  height: clamp(120px, 13vw, 160px);
+}
+
+/* === 横長（上書き） === */
+.btn.rect-h {
+  width: clamp(160px, 18vw, 220px);
+  height: clamp(90px, 10vw, 120px);
+}
+
+/* === 縦長（上書き） === */
+.btn.rect-v {
+  width: clamp(90px, 10vw, 120px);
+  height: clamp(160px, 18vw, 220px);
 }
 
 .btn:hover {
@@ -150,7 +168,7 @@ main {
 
 /* ===============================
    レスポンシブ
-   =============================== */
+=============================== */
 
 @media (max-width: 768px) {
   main {
@@ -162,4 +180,3 @@ main {
     border-bottom: 1px solid #ddd;
   }
 }
-
