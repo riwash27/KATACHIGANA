@@ -27,3 +27,4 @@ shapeButtons.forEach(btn => {
 });
 
 updatePreview();
+
