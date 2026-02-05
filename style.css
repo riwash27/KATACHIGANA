@@ -64,7 +64,7 @@ main {
 }
 
 /* ===============================
-   図形ボタン（体験ページ）
+   図形ボタン（あそぶページ）
 =============================== */
 
 .shape-buttons {
@@ -74,7 +74,6 @@ main {
   margin-top: 20px;
 }
 
-/* 共通ボタン */
 .shape {
   width: 46px;
   height: 46px;
@@ -88,87 +87,47 @@ main {
   outline: 2px solid #111;
 }
 
-/* ===============================
-   基本図形
-=============================== */
+/* 基本図形 */
 
-.circle {
-  border-radius: 50%;
-  /* border: 1px solid #999; */
-  background: #bcbcbc;
-}
-
-.square {
-  /* border: 1px solid #999; */
-  background: #bcbcbc;
-}
-
-.rect-h {
-  height: 24px;
-  /* border: 1px solid #999; */
-  background: #bcbcbc;
-}
-
-.rect-v {
-  width: 24px;
-  margin: auto;
-  /* border: 1px solid #999; */
-  background: #bcbcbc;
-}
-
+.circle,
+.square,
+.rect-h,
+.rect-v,
 .diamond {
-  transform: rotate(45deg);
-  /* border: 1px solid #999; */
   background: #bcbcbc;
 }
 
-/* ===============================
-   三角形（border法・完全安定版）
-=============================== */
+.circle { border-radius: 50%; }
+.rect-h { height: 24px; }
+.rect-v { width: 24px; margin: auto; }
+.diamond { transform: rotate(45deg); }
 
-/* 上向き三角形 */
+/* 三角形（border法） */
+
 .triangle::before {
   content: "";
   position: absolute;
   top: 6px;
   left: 50%;
   transform: translateX(-50%);
-
   width: 0;
   height: 0;
-
   border-left: 17px solid transparent;
   border-right: 17px solid transparent;
   border-bottom: 30px solid #bcbcbc;
 }
 
-/* 下向き三角形 */
 .inv-triangle::before {
   content: "";
   position: absolute;
   bottom: 6px;
   left: 50%;
   transform: translateX(-50%);
-
   width: 0;
   height: 0;
-
   border-left: 17px solid transparent;
   border-right: 17px solid transparent;
   border-top: 30px solid #bcbcbc;
-}
-
-/* hover / active */
-.shape:hover.triangle::before,
-.shape.active.triangle::before {
-  /* border-bottom-color: #111; */
-  /* outline: 2px solid #111 */
-}
-
-.shape:hover.inv-triangle::before,
-.shape.active.inv-triangle::before {
-  /* border-top-color: #111; */
-  /* outline: 2px solid #111 */
 }
 
 /* ===============================
@@ -203,7 +162,6 @@ main {
   margin: auto;
   margin-top: 50px;
   font-size: 13px;
-  
 }
 
 /* ダウンロード用ボタン */
@@ -214,11 +172,13 @@ main {
   align-items: center;
   text-decoration: none;
   color: #fff;
-  bx
+  background: #9f9f9f;
   transition: 0.2s;
   width: clamp(120px, 13vw, 160px);
   height: clamp(120px, 13vw, 160px);
 }
+
+/* 横長・縦長 */
 
 .btn.rect-h {
   width: clamp(160px, 18vw, 220px);
@@ -229,6 +189,20 @@ main {
   width: clamp(90px, 10vw, 120px);
   height: clamp(160px, 18vw, 220px);
 }
+
+/* ▼▼▼ ダウンロード専用：三角形の塗り ▼▼▼ */
+
+.btn.triangle {
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  background: #9f9f9f;
+}
+
+.btn.inv-triangle {
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: #9f9f9f;
+}
+
+/* hover */
 
 .btn:hover {
   background: #fff;
