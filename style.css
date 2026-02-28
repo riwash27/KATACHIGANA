@@ -17,27 +17,151 @@
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
-  background: #f6f6f6;
-  color: #111;
+  background: #ffffff;
+  color: #4e4e4e;
 }
 
 header {
-  padding: 24px;
+  padding: 12px;
   background: #fff;
   border-bottom: 1px solid #ddd;
   text-align: center;
-}
-
-nav a {
-  margin: 0 10px;
-  color: #aaa;
-  text-decoration: none;
 }
 
 main {
   display: grid;
   grid-template-columns: 320px 1fr;
   min-height: calc(100vh - 160px);
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- parts ---------- */
+
+.menu-wrapper {
+  position: relative;
+  z-index: 10000;
+}
+
+.menu-wrapper .hamburger__btn {
+  z-index: 101;
+  width: 30px;
+  height: 17px;
+  position: absolute;
+  top: -10px;
+  right: 0px;
+}
+.menu-wrapper .bar {
+  width: 30px;
+  height: 3px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  background-color: #4e4e4e;
+  transition: all 0.3s ease;
+}
+
+.menu-wrapper .bar-top {
+  top: 0;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.menu-wrapper .bar-center {
+  top: 7px;
+  transform: translateX(-50%);
+}
+.menu-wrapper .bar-bottom {
+  bottom: 0;
+  transform: translateX(-50%);
+}
+.menu-wrapper .hamburger__btn.close .bar-top {
+  transform: translate(-50%, 10px) rotate(45deg);
+}
+.menu-wrapper .hamburger__btn.close .bar-middle {
+  opacity: 0;
+}
+.menu-wrapper .hamburger__btn.close .bar-center {
+  display: none;
+}
+.menu-wrapper .hamburger__btn.close .bar-bottom {
+  transform: translate(-50%, -5px) rotate(-45deg);
+}
+
+/* MENU LIST */
+.menu-wrapper .menu-lists {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+  z-index: 9999;
+}
+
+.menu-wrapper .menu-lists::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-wrapper .menu-lists.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-wrapper .nav__list {
+  max-width: 840px;
+  padding: 20px;
+  margin: 0 auto;
+  list-style: none;
+  border-top: 1px solid #eee;
+}
+
+.menu-wrapper .nav__link {
+  display: block;
+  padding: 15px 0;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+
+/* -------------------------------------------------
+   ▼▼ ここから フェードインアニメーション ▼▼
+--------------------------------------------------- */
+
+/* navアイテム：初期状態 */
+.nav__item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+/* メニューが開いたとき */
+.menu-lists.show .nav__item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 順番に表示 */
+.menu-lists.show .nav__item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.menu-lists.show .nav__item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.menu-lists.show .nav__item:nth-child(3) {
+  transition-delay: 0.3s;
 }
 
 /* ===============================
@@ -63,11 +187,33 @@ main {
   padding: 8px;
 }
 
+
+
+/* ===============================
+   ホーム
+=============================== */
+.space {
+  height: 100vh;
+}
+
+span {
+    display: block;
+}
+
+.greet span {
+  display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  margin: 16px 0;
+  font-size:  60px;
+}
+
+
 /* ===============================
    図形ボタン（あそぶページ）
 =============================== */
 
-.shape-buttons {
+/* .shape-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -85,11 +231,11 @@ main {
 
 .shape.active {
   outline: 2px solid #111;
-}
+} */
 
 /* 基本図形 */
 
-.circle,
+/* .circle,
 .square,
 .rect-h,
 .rect-v,
@@ -128,33 +274,75 @@ main {
   border-left: 17px solid transparent;
   border-right: 17px solid transparent;
   border-top: 30px solid #bcbcbc;
-}
+} */
 
 /* ===============================
    プレビュー
 =============================== */
 
-.preview {
+/* .preview {
   padding: 32px;
   background: #fff;
+  color: #4e4e4e;
 }
 
 .preview-text {
   white-space: pre-wrap;
+} */
+
+
+
+/* ===============================
+   一覧ページ
+=============================== */
+.selectbox {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
 }
+
+.selectbox::after {
+    position: absolute;
+    right: 100px;
+    width: 10px;
+    height: 7px;
+    background-color: #535353;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox select {
+    appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: none;
+    border-bottom: 2px solid #d0d0d0;
+    background-color: #fff;
+    color: #333333;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 20px; 
+}
+
+.selectbox select:focus {
+    outline: none;
+}
+
 
 /* ===============================
    ダウンロードページ
 =============================== */
 
-.download {
+/* .download {
   background: #fff;
   color: #111;
   text-align: center;
-  padding: 40px;
-}
+  /* padding: 40px; */
+/* }  */
 
-.buttons {
+/* .buttons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: clamp(32px, 6vw, 80px);
@@ -162,11 +350,12 @@ main {
   margin: auto;
   margin-top: 50px;
   font-size: 13px;
-}
+  padding: 40px;
+} */
 
 /* ダウンロード用ボタン */
 
-.btn {
+/* .btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,43 +365,43 @@ main {
   transition: 0.2s;
   width: clamp(120px, 13vw, 160px);
   height: clamp(120px, 13vw, 160px);
-}
+} */
 
 /* 横長・縦長 */
 
-.btn.rect-h {
+/* .btn.rect-h {
   width: clamp(160px, 18vw, 220px);
   height: clamp(90px, 10vw, 120px);
-}
+} */
 
-.btn.rect-v {
+/* .btn.rect-v {
   width: clamp(90px, 10vw, 120px);
   height: clamp(160px, 18vw, 220px);
-}
+} */
 
 /* ▼▼▼ ダウンロード専用：三角形の塗り ▼▼▼ */
 
-.btn.triangle {
+/* .btn.triangle {
   clip-path: polygon(50% 0, 0 100%, 100% 100%);
   background: #9f9f9f;
-}
+} */
 
-.btn.inv-triangle {
+/* .btn.inv-triangle {
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   background: #9f9f9f;
-}
+} */
 
 /* hover */
 
-.btn:hover {
+/* .btn:hover {
   background: #fff;
   color: #000;
-}
+} */
 
 /* ===============================
    レスポンシブ
 =============================== */
-
+/* 
 @media (max-width: 768px) {
   main {
     grid-template-columns: 1fr;
@@ -222,4 +411,4 @@ main {
     border-right: none;
     border-bottom: 1px solid #ddd;
   }
-}
+} */
