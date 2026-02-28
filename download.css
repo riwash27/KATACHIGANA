@@ -1,0 +1,76 @@
+/* ===============================
+   ダウンロードページ専用
+=============================== */
+
+.download {
+  background: #fff;
+  color: #111;
+  text-align: center;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: clamp(32px, 6vw, 80px);
+  max-width: 900px;
+  margin: auto;
+  margin-top: 50px;
+  font-size: 13px;
+  padding: 40px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  background: #9f9f9f;
+  transition: 0.2s;
+  width: clamp(120px, 13vw, 160px);
+  height: clamp(120px, 13vw, 160px);
+}
+
+.btn.rect-h {
+  width: clamp(160px, 18vw, 220px);
+  height: clamp(90px, 10vw, 120px);
+}
+
+.btn.rect-v {
+  width: clamp(90px, 10vw, 120px);
+  height: clamp(160px, 18vw, 220px);
+}
+
+/* ▼▼▼ ダウンロード専用：三角形の塗り ▼▼▼ */
+
+.btn.triangle {
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  background: #9f9f9f;
+}
+
+.btn.inv-triangle {
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: #9f9f9f;
+}
+
+/* hover */
+
+.btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ===============================
+   レスポンシブ
+=============================== */
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+}
