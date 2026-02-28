@@ -2,24 +2,38 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>かたちがな｜KATACHIGANA</title>
+  <title>かたちがな｜あそぶ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="play.css">
 </head>
 
 <body>
 <header>
   <h1>かたちがな</h1>
   <p>外形の影響に基づくひらがなのタイプフェイス</p>
-  <nav>
-    <a href="index.html">あそぶ</a> 
-    <a href="download.html">ダウンロード</a>
-  </nav>
+
+  <div class="menu-wrapper">
+    <div class="hamburger__btn">
+      <span class="bar bar-top"></span>
+      <span class="bar bar-center"></span>
+      <span class="bar bar-bottom"></span>
+    </div>
+
+    <nav class="menu-lists">
+      <ul class="nav__list">
+        <!-- <li class="nav__item"><a href="index.html" class="nav__link">かたちがなとは</a></li> -->
+        <li class="nav__item"><a href="index.html" class="nav__link">あそぶ</a></li>
+        <!-- <li class="nav__item"><a href="list.html" class="nav__link">一覧</a></li> -->
+        <li class="nav__item"><a href="download.html" class="nav__link">ダウンロード</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <main>
   <section class="controls">
-    <label>ひらがなを入力</label>
+    <label>自由にひらがなを入力してください</label>
     <textarea id="textInput" rows="4">あいうえお かきくけこ
 まるい しかく さんかく</textarea>
 
@@ -48,6 +62,7 @@
       <button class="shape diamond" data-font="Diamond"></button>
       <button class="shape rect-h" data-font="Side"></button>
       <button class="shape rect-v" data-font="Vertical"></button>
+    </div>
   </section>
 
   <section class="preview">
@@ -62,4 +77,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
