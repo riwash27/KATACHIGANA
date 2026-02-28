@@ -1,0 +1,86 @@
+/* ===============================
+   あそぶページ専用
+=============================== */
+
+main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+}
+
+/* 操作UI */
+
+.controls {
+  padding: 24px;
+  background: #fafafa;
+  border-right: 1px solid #ddd;
+}
+
+.controls label {
+  font-size: 12px;
+  margin-top: 16px;
+  display: block;
+}
+
+.controls input,
+.controls textarea,
+.controls select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+}
+
+/* 図形ボタン */
+
+.shape-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.shape {
+  width: 46px;
+  height: 46px;
+  background: #bcbcbc;
+  border: none;
+  cursor: pointer;
+}
+
+.shape.active {
+  outline: 2px solid #111;
+}
+
+.circle { border-radius: 50%; }
+.rect-h { height: 24px; }
+.rect-v { width: 24px; margin: auto; }
+.diamond { transform: rotate(45deg); }
+
+.triangle {
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.inv-triangle {
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+/* プレビュー */
+
+.preview {
+  padding: 32px;
+  background: #fff;
+}
+
+.preview-text {
+  white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+}
