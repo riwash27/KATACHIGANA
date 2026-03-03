@@ -16,9 +16,9 @@
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: serif;
   background: #ffffff;
-  color: #4e4e4e;
+  color: #414141;
 }
 
 header {
@@ -28,10 +28,11 @@ header {
   text-align: center;
 }
 
-main {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  min-height: calc(100vh - 160px);
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #fff;
+  border-top: 1px solid #ddd;
 }
 
 ul,
@@ -53,7 +54,8 @@ li {
   height: 17px;
   position: absolute;
   top: -10px;
-  right: 0px;
+  /* right: 0px; */
+  left:   18px;
 }
 .menu-wrapper .bar {
   width: 30px;
@@ -164,132 +166,6 @@ li {
   transition-delay: 0.3s;
 }
 
-/* ===============================
-   操作UI
-=============================== */
-
-.controls {
-  padding: 24px;
-  background: #fafafa;
-  border-right: 1px solid #ddd;
-}
-
-.controls label {
-  font-size: 12px;
-  margin-top: 16px;
-  display: block;
-}
-
-.controls input,
-.controls textarea,
-.controls select {
-  width: 100%;
-  padding: 8px;
-}
-
-
-
-/* ===============================
-   ホーム
-=============================== */
-.space {
-  height: 100vh;
-}
-
-span {
-    display: block;
-}
-
-.greet span {
-  display: block;
-  opacity: 0;
-  transform: translateY(20px);
-  margin: 16px 0;
-  font-size:  60px;
-}
-
-
-/* ===============================
-   図形ボタン（あそぶページ）
-=============================== */
-
-/* .shape-buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.shape {
-  width: 46px;
-  height: 46px;
-  background: transparent;
-  cursor: pointer;
-  position: relative;
-  border: none;
-}
-
-.shape.active {
-  outline: 2px solid #111;
-} */
-
-/* 基本図形 */
-
-/* .circle,
-.square,
-.rect-h,
-.rect-v,
-.diamond {
-  background: #bcbcbc;
-}
-
-.circle { border-radius: 50%; }
-.rect-h { height: 24px; }
-.rect-v { width: 24px; margin: auto; }
-.diamond { transform: rotate(45deg); }
-
-/* 三角形（border法） */
-
-.triangle::before {
-  content: "";
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 17px solid transparent;
-  border-right: 17px solid transparent;
-  border-bottom: 30px solid #bcbcbc;
-}
-
-.inv-triangle::before {
-  content: "";
-  position: absolute;
-  bottom: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 17px solid transparent;
-  border-right: 17px solid transparent;
-  border-top: 30px solid #bcbcbc;
-} */
-
-/* ===============================
-   プレビュー
-=============================== */
-
-/* .preview {
-  padding: 32px;
-  background: #fff;
-  color: #4e4e4e;
-}
-
-.preview-text {
-  white-space: pre-wrap;
-} */
-
 
 
 /* ===============================
@@ -330,85 +206,3 @@ span {
     outline: none;
 }
 
-
-/* ===============================
-   ダウンロードページ
-=============================== */
-
-/* .download {
-  background: #fff;
-  color: #111;
-  text-align: center;
-  /* padding: 40px; */
-/* }  */
-
-/* .buttons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: clamp(32px, 6vw, 80px);
-  max-width: 900px;
-  margin: auto;
-  margin-top: 50px;
-  font-size: 13px;
-  padding: 40px;
-} */
-
-/* ダウンロード用ボタン */
-
-/* .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: #fff;
-  background: #9f9f9f;
-  transition: 0.2s;
-  width: clamp(120px, 13vw, 160px);
-  height: clamp(120px, 13vw, 160px);
-} */
-
-/* 横長・縦長 */
-
-/* .btn.rect-h {
-  width: clamp(160px, 18vw, 220px);
-  height: clamp(90px, 10vw, 120px);
-} */
-
-/* .btn.rect-v {
-  width: clamp(90px, 10vw, 120px);
-  height: clamp(160px, 18vw, 220px);
-} */
-
-/* ▼▼▼ ダウンロード専用：三角形の塗り ▼▼▼ */
-
-/* .btn.triangle {
-  clip-path: polygon(50% 0, 0 100%, 100% 100%);
-  background: #9f9f9f;
-} */
-
-/* .btn.inv-triangle {
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  background: #9f9f9f;
-} */
-
-/* hover */
-
-/* .btn:hover {
-  background: #fff;
-  color: #000;
-} */
-
-/* ===============================
-   レスポンシブ
-=============================== */
-/* 
-@media (max-width: 768px) {
-  main {
-    grid-template-columns: 1fr;
-  }
-
-  .controls {
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-  }
-} */
