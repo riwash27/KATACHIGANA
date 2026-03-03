@@ -120,3 +120,89 @@ header img {
   }
 }
 
+  width: 70vw;   /* 画面幅の70% */
+  max-width: 100%; /* 念のため */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* 中央配置 */
+}
+
+/* ===============================
+   メインエリア
+=============================== */
+
+main {
+  position: relative;
+  background: #ffffff;
+  z-index: 10;
+  padding: 60px 0;
+}
+
+/* ===============================
+   Header Styles
+=============================== */
+
+header {
+  overflow: hidden;
+  /* padding-bottom で高さを決める */
+  padding-bottom: 55%;
+}
+
+/* ヘッダー画像 */
+header img {
+  width: 100%;
+  max-width: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===============================
+   Swiper Styles
+=============================== */
+
+/* スライド画像 */
+.swiper-slide img {
+  height: auto;
+  width: 100%;
+}
+
+/* ★★★ 矢印をグレーに変更（追加部分）★★★ */
+.swiper {
+  --swiper-navigation-color: #b6b6b6; /* ← 矢印色 */
+  --swiper-pagination-color: #b6b6b6; /* ← 下のドット色も統一 */
+}
+
+/* 矢印サイズ調整（任意） */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 24px;
+}
+
+/* ===============================
+   Responsive Design
+=============================== */
+
+@media (min-width: 500px) {
+  .contained {
+    width: 80%;
+  }
+}
+
+@media (min-width: 600px) {
+  .contained {
+    width: 60%;
+  }
+
+  header {
+    padding-bottom: 50%;
+  }
+}
+
+@media (min-width: 700px) {
+  header {
+    padding-bottom: 45%;
+  }
+}
+
