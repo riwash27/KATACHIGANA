@@ -1,79 +1,125 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <title>かたちがな｜あそぶ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>かたちがな｜KATACHIGANA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="play.css">
+  <link rel="stylesheet" href="home.css">
+  <!-- <link rel="stylesheet" href="swiper-bundle.min.css"> -->
 </head>
 
+
 <body>
-<header>
-  <h1>かたちがな</h1>
-  <p>外形の影響に基づくひらがなのタイプフェイス</p>
-
-  <div class="menu-wrapper">
-    <div class="hamburger__btn">
-      <span class="bar bar-top"></span>
-      <span class="bar bar-center"></span>
-      <span class="bar bar-bottom"></span>
-    </div>
-
-    <nav class="menu-lists">
-      <ul class="nav__list">
-        <!-- <li class="nav__item"><a href="index.html" class="nav__link">かたちがなとは</a></li> -->
-        <li class="nav__item"><a href="index.html" class="nav__link">あそぶ</a></li>
-        <!-- <li class="nav__item"><a href="list.html" class="nav__link">一覧</a></li> -->
-        <li class="nav__item"><a href="download.html" class="nav__link">ダウンロード</a></li>
-      </ul>
-    </nav>
-  </div>
+<header class="zoom-me">
+  <img src="image/book.JPG" alt="かたちがなメインビジュアル">
 </header>
 
+<div class="menu-wrapper">
+  <div class="hamburger__btn">
+    <span class="bar bar-top"></span>
+    <span class="bar bar-center"></span>
+    <span class="bar bar-bottom"></span>
+  </div>
+
+  <nav class="menu-lists">
+    <ul class="nav__list">
+      <li class="nav__item"><a href="index.html" class="nav__link">かたちがなとは</a></li>
+      <li class="nav__item"><a href="play.html" class="nav__link">あそぶ</a></li>
+      <!-- <li class="nav__item"><a href="list.html" class="nav__link">一覧</a></li> -->
+      <li class="nav__item"><a href="download.html" class="nav__link">ダウンロード</a></li>
+    </ul>
+  </nav>
+</div>
+
+
 <main>
-  <section class="controls">
-    <label>自由にひらがなを入力してください</label>
-    <textarea id="textInput" rows="4">あいうえお かきくけこ
-まるい しかく さんかく</textarea>
 
-    <label>文字サイズ</label>
-    <input id="fontSize" type="range" min="16" max="200" value="72">
+  <div class="contained fade-container">
+  <h1>かたちがな</h1>
 
-    <label>行間</label>
-    <input id="lineHeight" type="range" min="0.8" max="2.5" step="0.1" value="1.4">
+  <div class="fade-text"><span>かたちがな</span></div>
+  <p class="fade-text"><span>外形の影響に基づくひらがなのタイプフェイス</span><br><br></p>
 
-    <label>字間</label>
-    <input id="letterSpacing" type="range" min="-0.1" max="1" step="0.05" value="0">
+  <p class="fade-text"><span>ひらがなには「外形」と呼ばれる文字全体を囲む輪郭が存在する。</span></p>
 
-    <label>配置</label>
-    <select id="align">
-      <option value="left">左揃え</option>
-      <option value="center">中央揃え</option>
-      <option value="right">右揃え</option>
-    </select>
+  <p class="fade-text">
+    <span>
+      外形を意識して文字を書くことで、字形の安定や均整をもたらし、美しさや視認性が<br>向上するとされている。
+    </span>
+  </p>
 
-    <label>かたちがな タイプフェイス選択</label>
-    <div class="shape-buttons">
-      <button class="shape circle" data-font="Circle"></button>
-      <button class="shape triangle" data-font="Triangle"></button>
-      <button class="shape inv-triangle" data-font="Triangle2"></button>
-      <button class="shape square" data-font="Square"></button>
-      <button class="shape diamond" data-font="Diamond"></button>
-      <button class="shape rect-h" data-font="Side"></button>
-      <button class="shape rect-v" data-font="Vertical"></button>
+  <p class="fade-text">
+    <span>
+      ひらがなの外形は円形、三角形、逆三角形、正方形、ひし形、横長、縦長の全7種類に<br>分類することができる。
+    </span>
+  </p>
+
+  <p class="fade-text">
+    <span>
+      本来美しく文字を書くための指標である外形に着目し、その形態的特徴を極端に強調した
+      「かたちがな」という新たなひらがなのタイプフェイスを制作した。
+    </span><br><br>
+  </p>
+
+  <p class="fade-text">
+    <span>
+  <h2>7種類のかたちがな</h2>
+    </span>
+    <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="image/えんがな.png" alt="えんがな" />
+      </div>
+      <div class="swiper-slide">
+        <img src="image/さんかくがな.png" alt="さんかくがな" />
+      </div>
+      <div class="swiper-slide">
+        <img src="image/ぎゃくがな.png" alt="ぎゃくがな" />
+      </div>
+      <div class="swiper-slide">
+        <img src="image/せいほうがな.png" alt="せいほうがな" />
+      </div>
+      <div class="swiper-slide">
+        <img src="image/ひしがな.png" alt="ひしがな" />
+      </div>
+      <div class="swiper-slide">
+        <img src="image/よこがな.png" alt="よこがな" />
+      </div>
+            <div class="swiper-slide">
+        <img src="image/たてがな.png" alt="たてがな" />
+      </div>
     </div>
-  </section>
+    <!-- pagination -->
+    <div class="swiper-pagination"></div>
+    <!--  left and right arrow -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
 
-  <section class="preview">
-    <div id="previewText" class="preview-text"></div>
-  </section>
+
+  <!-- swiper loading(CDN) -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  </p>
+</div>
+
+  <p class="fade-text">
+    <span>
+      <img src="image/一覧.png" alt="一覧" />
+    </span><br><br>
+  </p>
 </main>
 
 <footer>
   © KATACHIGANA / Graduation Project
 </footer>
 
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 <script src="script.js"></script>
+<script src="home.js"></script>
 </body>
 </html>
