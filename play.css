@@ -38,16 +38,26 @@ main {
   margin-top: 20px;
 }
 
+
 .shape {
   width: 46px;
   height: 46px;
-  background: #bcbcbc;
-  border: none;
+  background: transparent;
   cursor: pointer;
+  position: relative;
+  border: none;
 }
 
 .shape.active {
   outline: 2px solid #111;
+}
+
+.circle,
+.square,
+.rect-h,
+.rect-v,
+.diamond {
+  background: #bcbcbc;
 }
 
 .circle { border-radius: 50%; }
@@ -55,13 +65,32 @@ main {
 .rect-v { width: 24px; margin: auto; }
 .diamond { transform: rotate(45deg); }
 
-.triangle {
-  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+
+.triangle::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 17px solid transparent;
+  border-right: 17px solid transparent;
+  border-bottom: 30px solid #bcbcbc;
 }
 
-.inv-triangle {
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-}
+.inv-triangle::before {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 17px solid transparent;
+  border-right: 17px solid transparent;
+  border-top: 30px solid #bcbcbc;
+} 
 
 /* プレビュー */
 
@@ -84,3 +113,19 @@ main {
     border-bottom: 1px solid #ddd;
   }
 }
+
+/* ===============================
+   プレビュー
+=============================== */
+
+.preview {
+  padding: 32px;
+  background: #fff;
+  /* color: #4e4e4e; */
+}
+
+.preview-text {
+  white-space: pre-wrap;
+}
+
+
