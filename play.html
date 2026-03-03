@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>かたちがな｜あそぶ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="play.css">
+</head>
+
+<body>
+<header>
+  <h1>かたちがな</h1>
+  <p>外形の影響に基づくひらがなのタイプフェイス</p>
+
+  <div class="menu-wrapper">
+    <div class="hamburger__btn">
+      <span class="bar bar-top"></span>
+      <span class="bar bar-center"></span>
+      <span class="bar bar-bottom"></span>
+    </div>
+
+    <nav class="menu-lists">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="index.html" class="nav__link">かたちがなとは</a></li>
+        <li class="nav__item"><a href="play.html" class="nav__link">あそぶ</a></li>
+        <!-- <li class="nav__item"><a href="list.html" class="nav__link">一覧</a></li> -->
+        <li class="nav__item"><a href="download.html" class="nav__link">ダウンロード</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="controls">
+    <label>自由にひらがなを入力してください</label>
+    <textarea id="textInput" rows="4">あいうえお かきくけこ
+まるい しかく さんかく</textarea>
+
+    <label>文字サイズ</label>
+    <input id="fontSize" type="range" min="20" max="360" value="120">
+
+    <label>行間</label>
+    <input id="lineHeight" type="range" min="0.7" max="2.5" step="0.1" value="1.4">
+
+    <label>字間</label>
+    <input id="letterSpacing" type="range" min="-0.1" max="1" step="0.05" value="0">
+
+    <label>配置</label>
+    <select id="align">
+      <option value="left">左揃え</option>
+      <option value="center">中央揃え</option>
+      <option value="right">右揃え</option>
+    </select>
+
+    <label>かたちがな タイプフェイス選択</label>
+    <div class="shape-buttons">
+      <button class="shape circle" data-font="Circle"></button>
+      <button class="shape triangle" data-font="Triangle"></button>
+      <button class="shape inv-triangle" data-font="Triangle2"></button>
+      <button class="shape square" data-font="Square"></button>
+      <button class="shape diamond" data-font="Diamond"></button>
+      <button class="shape rect-h" data-font="Side"></button>
+      <button class="shape rect-v" data-font="Vertical"></button>
+    </div>
+  </section>
+
+  <section class="preview">
+    <div id="previewText" class="preview-text"></div>
+  </section>
+</main>
+
+<footer>
+  © KATACHIGANA / Graduation Project
+</footer>
+
+<script src="script.js"></script>
+<script src="play.js"></script>
+</body>
+</html>
