@@ -15,7 +15,8 @@ body {
 } */
 
 h1 {
-  font-size: clamp(80px, 20vw, 180px);
+  /* font-size: clamp(80px, 20vw, 180px); */
+   font-size: 10px;
   font-family: "Triangle2";
   text-align: center;
 }
